@@ -110,6 +110,5 @@ public class AuthAction extends ActionBase{
 
         //ログイン画面にリダイレクト
         redirect(ForwardConst.ACT_AUTH, ForwardConst.CMD_SHOW_LOGIN);
-
     }
 }
