@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.servlet.ServletException;
 
+import actions.views.EmployeeView;
 import constants.AttributeConst;
 import constants.ForwardConst;
 import constants.MessageConst;
@@ -71,7 +72,7 @@ public class AuthAction extends ActionBase{
             if (checkToken()) {
 
                 //ログインした従業員のDBデータを取得
-                views.EmployeeView ev = service.findOne(code, plainPass, pepper);
+                EmployeeView ev = service.findOne(code, plainPass, pepper);
                 //セッションにログインした従業員を設定
                 putSessionScope(AttributeConst.LOGIN_EMP, ev);
                 //セッションにログイン完了のフラッシュメッセージを設定
@@ -93,6 +94,7 @@ public class AuthAction extends ActionBase{
             forward(ForwardConst.FW_LOGIN);
         }
     }
+    //不安
     /**
      * ログアウト処理を行う
      * @throws ServletException
